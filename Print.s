@@ -46,12 +46,6 @@ LCD_OutDec
 		UDIV R1, R0, R3				;Input to outchar is N%10
 		MUL	R1, R1, R3
 		SUB R0, R0, R1
-		ADD	R0, R0, #0x30			;Convert to ASCII
-		PUSH	{LR}
-		BL	ST7735_OutChar
-		POP {LR}
-		ADD	SP, SP, #4				;Deallocate the stack
-		BX 	LR						;Return to caller
 ;---------------------Base Case Exit----------------------
 ENDR	ADD	R0, R0, #0x30			;Convert to ASCII
 		PUSH {LR}
